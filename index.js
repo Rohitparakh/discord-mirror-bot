@@ -134,12 +134,15 @@ const gateway = new selfcore.Gateway(
   process.env.PERSONAL_AUTH_TOKEN
 );
 
-
+client.sendWebhook(
+    process.env.DISCORD_WEBHOOK,
+    "Bot Online!"
+  );
 
   setTimeout(()=>{
     client.sendWebhook(
         process.env.DISCORD_WEBHOOK,
-        "Bot Online!"
+        "Bot Running!"
       );
   },600000)
 
