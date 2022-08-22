@@ -1,10 +1,10 @@
 import selfcore from "selfcore";
 // import requirements 
-const {
-    Client,
-    Intents,
-    MessageEmbed,
-} = require('discord.js');
+// const {
+//     Client,
+//     Intents,
+//     MessageEmbed,
+// } = require('discord.js');
 
 // // starting in djs v13, we are required to specify which intents we are using in the client constructor
 // const client = new Client({
@@ -134,13 +134,18 @@ const gateway = new selfcore.Gateway(
   process.env.PERSONAL_AUTH_TOKEN
 );
 
-gateway.on("message", (m) => {
-  if (m.channel_id === process.env.MIRROR_CHANNEL) {
-    let content = m.content ? m.content : { embeds: [m.embeds[0]] };
+client.sendWebhook(
+    process.env.DISCORD_WEBHOOK,
+    "Bot Online!"
+  );
+  
+// gateway.on("message", (m) => {
+//   if (m.channel_id === process.env.MIRROR_CHANNEL) {
+//     let content = m.content ? m.content : { embeds: [m.embeds[0]] };
 
-    client.sendWebhook(
-      process.env.DISCORD_WEBHOOK,
-      content
-    );
-  }
-});
+//     client.sendWebhook(
+//       process.env.DISCORD_WEBHOOK,
+//       content
+//     );
+//   }
+// });
