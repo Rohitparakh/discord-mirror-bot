@@ -134,10 +134,14 @@ const gateway = new selfcore.Gateway(
   process.env.PERSONAL_AUTH_TOKEN
 );
 
-client.sendWebhook(
-    process.env.DISCORD_WEBHOOK,
-    "Bot Online!"
-  );
+
+
+  setTimeout(()=>{
+    client.sendWebhook(
+        process.env.DISCORD_WEBHOOK,
+        "Bot Online!"
+      );
+  },600000)
 
 gateway.on("message", (m) => {
   if (m.channel_id === process.env.MIRROR_CHANNEL) {
@@ -149,3 +153,5 @@ gateway.on("message", (m) => {
     );
   }
 });
+
+
