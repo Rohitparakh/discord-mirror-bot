@@ -138,14 +138,14 @@ client.sendWebhook(
     process.env.DISCORD_WEBHOOK,
     "Bot Online!"
   );
-  
-// gateway.on("message", (m) => {
-//   if (m.channel_id === process.env.MIRROR_CHANNEL) {
-//     let content = m.content ? m.content : { embeds: [m.embeds[0]] };
 
-//     client.sendWebhook(
-//       process.env.DISCORD_WEBHOOK,
-//       content
-//     );
-//   }
-// });
+gateway.on("message", (m) => {
+  if (m.channel_id === process.env.MIRROR_CHANNEL) {
+    let content = m.content ? m.content : { embeds: [m.embeds[0]] };
+
+    client.sendWebhook(
+      process.env.DISCORD_WEBHOOK,
+      content
+    );
+  }
+});
