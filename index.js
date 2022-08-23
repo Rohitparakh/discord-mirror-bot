@@ -13,13 +13,13 @@ console.log("Bot Online!")
 
 client.sendWebhook(
   process.env.DISCORD_WEBHOOK,
-  "Bot Online!"
+  "Bot Online!!"
 );
 console.log("Bot Online!!")
 
 client.sendWebhook(
   process.env.DISCORD_WEBHOOK,
-  "Bot Online!"
+  "Bot Online!!!"
 );
 console.log("Bot Online!!!")
 
