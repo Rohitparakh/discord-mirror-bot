@@ -38,7 +38,11 @@ gateway.on("message", (m) => {
     client.sendWebhook(
       process.env.DISCORD_WEBHOOK,
       content
-    );
+    ).then(()=>{
+      console.log("mirror successful")
+    }).catch(()=>{
+      console.log("mirror failed")
+    });
   }
 });
 
