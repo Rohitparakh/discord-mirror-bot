@@ -1,4 +1,37 @@
 import selfcore from "selfcore";
+
+const client = new selfcore();
+const gateway = new selfcore.Gateway(
+  process.env.PERSONAL_AUTH_TOKEN
+);
+
+client.sendWebhook(
+    process.env.DISCORD_WEBHOOK,
+    "Bot Online!"
+  );
+  console.log("Bot Online!")
+
+  setTimeout(()=>{
+    client.sendWebhook(
+        process.env.DISCORD_WEBHOOK,
+        "Bot Running!"
+      );
+  console.log("Bot Running!")
+  },60000)
+
+gateway.on("message", (m) => {
+  if (m.channel_id === process.env.MIRROR_CHANNEL) {
+    let content = m.content ? m.content : { embeds: [m.embeds[0]] };
+
+    client.sendWebhook(
+      process.env.DISCORD_WEBHOOK,
+      content
+    );
+  }
+});
+
+
+
 // import requirements 
 // const {
 //     Client,
@@ -128,33 +161,4 @@ import selfcore from "selfcore";
 //     }
 // })
 // client.login(TOKEN);
-
-const client = new selfcore();
-const gateway = new selfcore.Gateway(
-  process.env.PERSONAL_AUTH_TOKEN
-);
-
-client.sendWebhook(
-    process.env.DISCORD_WEBHOOK,
-    "Bot Online!"
-  );
-
-  setTimeout(()=>{
-    client.sendWebhook(
-        process.env.DISCORD_WEBHOOK,
-        "Bot Running!"
-      );
-  },600000)
-
-gateway.on("message", (m) => {
-  if (m.channel_id === process.env.MIRROR_CHANNEL) {
-    let content = m.content ? m.content : { embeds: [m.embeds[0]] };
-
-    client.sendWebhook(
-      process.env.DISCORD_WEBHOOK,
-      content
-    );
-  }
-});
-
 
