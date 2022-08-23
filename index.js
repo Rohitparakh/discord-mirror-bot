@@ -6,10 +6,22 @@ const gateway = new selfcore.Gateway(
 );
 
 client.sendWebhook(
-    process.env.DISCORD_WEBHOOK,
-    "Bot Online!"
-  );
-  console.log("Bot Online!")
+  process.env.DISCORD_WEBHOOK,
+  "Bot Online!"
+);
+console.log("Bot Online!")
+
+client.sendWebhook(
+  process.env.DISCORD_WEBHOOK,
+  "Bot Online!"
+);
+console.log("Bot Online!!")
+
+client.sendWebhook(
+  process.env.DISCORD_WEBHOOK,
+  "Bot Online!"
+);
+console.log("Bot Online!!!")
 
   setTimeout(()=>{
     client.sendWebhook(
